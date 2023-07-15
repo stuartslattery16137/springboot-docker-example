@@ -1,3 +1,4 @@
 To run via docker:
-mvn clean package docker:build
-docker run --expose 8080 -p 8080:8080 springdocker-test-project
+1. Ensure DockerDesktop is running
+2. 'mvn clean package docker:build'
+3. 'docker run --expose 8080 -p 8080:8080 springdocker-test-project'

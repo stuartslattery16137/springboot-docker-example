@@ -17,17 +17,17 @@ public class Controller {
         this.movieService = movieService;
     }
 
-    @GetMapping("/get")
-    public String get(){
+    @GetMapping("/hello")
+    public String hello(){
         return "Hello there";
     }
 
-    @GetMapping("/getMovies")
+    @GetMapping("/movies")
     public List<Movie> getMovies(){
         return movieService.getAllMovies();
     }
 
-    @PostMapping("/saveMovie")
+    @PostMapping("/movie")
     public void saveMovie(@RequestBody Movie movie) {
         movieService.saveMovie(movie);
     }
