@@ -39,4 +39,17 @@ class MovieRepositoryTest {
         List<Movie> movies = movieRepository.findAllById(singletonList(movie.getId()));
         assertThat(movies).contains(movie);
     }
+
+    @Test
+    void verifyRetrieveOnPreExistingData() {
+        Movie movie = new Movie();
+//        movie.setId(nextInt());  <-- need to ensure that we don't manually change the ID either via setter or constructor
+        movie.setTitle(randomAlphanumeric(10)); // since it is supposed to be auto generated it causes issues
+        movie.setRuntimeMinutes(nextInt());
+
+        entityManager.persist(movie);
+
+        List<Movie> movies = movieRepository.findAllById(singletonList(movie.getId()));
+        assertThat(movies).contains(movie);
+    }
 }
